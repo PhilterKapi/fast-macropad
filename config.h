@@ -31,4 +31,3 @@
 //PCB default pin-out
 #define MATRIX_ROW_PINS { D4, C6, F4, F7 }
 #define MATRIX_COL_PINS { D7, E6, B4, B5 }
-#define UNUSED_PINS
