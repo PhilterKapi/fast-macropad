@@ -22,9 +22,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-
-#if defined(ENCODER_MAP_ENABLE)
-const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_BASE] =   { ENCODER_CCW_CW(KC_KB_VOLUME_UP, KC_KB_VOLUME_DOWN), ENCODER_CCW_CW(KC_MNXT, KC_MPRV)  }
-};
-#endif
+bool encoder_update_kb(uint8_t index, bool clockwise) {
+    if (!encoder_update_kb(index, clockwise)) {
+      return false; /* Don't process further events if user function exists and returns false */
+    }
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            tap_code(KC_KB_VOLUME_UP);
+        } else {
+            tap_code(KC_KB_VOLUME_DOWN);
+        }
+    } else if (index == 1) { /* Second encoder */
+        if (clockwise) {
+            tap_code(KC_MNXT);
+        } else {
+            tap_code(KC_MPRV);
+        }
+    }
+    return true;
+}
