@@ -14,11 +14,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |       |       |       |       |
  * `-------------------------------'
  */
-    [0] = LAYOUT_numpad_4x4(
-        KC_P,       KC_A,      KC_B,      KC_C,
-        KC_UP,      KC_F,      KC_G,      KC_H,
-        KC_DOWN,    KC_RIGHT,  KC_D,      KC_L,
-        KC_LEFT,    KC_W,      KC_R,      KC_T
+    [0] = LAYOUT_numpad_3x4(
+        KC_P,      KC_A,       KC_B,      KC_C,
+        KC_Q,      KC_UP,      KC_G,      KC_H,
+        KC_LEFT,   KC_DOWN,    KC_RIGHT,  KC_L//,
+        //KC_LEFT,   KC_LEFT,    KC_LEFT,   KC_LEFT
     )
 };
 
